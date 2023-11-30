@@ -1,0 +1,28 @@
+{
+  "name": "advent2023",
+  "version": "1.0.0",
+  "description": "Solutions to AoC 2023",
+  "scripts": {
+    "all": "node all.js",
+    "test": "mocha day*/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schwarzwald/advent2023.git"
+  },
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^10.1.0"
+  },
+  "keywords": [
+    "advent-of-code",
+    "advent-of-code-2022",
+    "aoc2022"
+  ],
+  "author": "schwarzwald",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/schwarzwald/advent2023/issues"
+  },
+  "homepage": "https://github.com/schwarzwald/advent2023#readme"
+}
