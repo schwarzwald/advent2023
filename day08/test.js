@@ -3,9 +3,8 @@ const part1 = require("./part1");
 const part2 = require("./part2");
 
 describe("Day 08: Part 1", () => {
-          it("Should calculate number of steps required to finish", () => {
-                    expect(
-                              part1(`RL
+  it("Should calculate number of steps required to finish", () => {
+    expect(part1(`RL
 
 AAA = (BBB, CCC)
 BBB = (DDD, EEE)
@@ -13,22 +12,19 @@ CCC = (ZZZ, GGG)
 DDD = (DDD, DDD)
 EEE = (EEE, EEE)
 GGG = (GGG, GGG)
-ZZZ = (ZZZ, ZZZ)`)
-                    ).to.equal(2);
+ZZZ = (ZZZ, ZZZ)`)).to.equal(2);
 
-                    expect(
-                              part1(`LLR
+    expect(part1(`LLR
 
 AAA = (BBB, BBB)
 BBB = (AAA, ZZZ)
-ZZZ = (ZZZ, ZZZ)`)
-                    ).to.equal(6);
-          });
+ZZZ = (ZZZ, ZZZ)`)).to.equal(6);
+  });
 });
 describe("Day 08: Part 2", () => {
-          it("Should calculate number of steps required to finish all paths starting with A simultaniously", () => {
-                    expect(
-                              part2(`LR
+  it("Should calculate number of steps required to finish all paths starting with A simultaniously", () => {
+    expect(
+      part2(`LR
 
 11A = (11B, XXX)
 11B = (XXX, 11Z)
@@ -38,6 +34,6 @@ describe("Day 08: Part 2", () => {
 22C = (22Z, 22Z)
 22Z = (22B, 22B)
 XXX = (XXX, XXX)`)
-                    ).to.equal(6);
-          });
+    ).to.equal(6);
+  });
 });
