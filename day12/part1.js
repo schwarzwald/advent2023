@@ -1,8 +1,32 @@
 function generate(data, hints) {
-  return partition(
-    data.length - hints.reduce((a, b) => a + b) - (hints.length - 1),
-    hints.length + 1)
-    .filter(p => validate(data, p, hints)).length;
+  let sum = data.length - hints.reduce((a, b) => a + b) - (hints.length - 1);
+  let parts = hints.length + 1;
+  let valid = 0;
+
+  let generator = partition(sum, parts, parts);
+  let value;
+  do {
+    value = generator.next();
+    if (validate(data, value.value, hints)) {
+      valid++;
+    }
+  } while (value.value[0] != sum);
+
+  return valid;
+}
+
+function* partition(sum, parts, total, arr) {
+  arr = arr || new Array(parts);
+  if (parts == 1) {
+    arr[total - parts] = sum;
+    yield arr;
+  } else {
+    for (let i = 0; i <= sum; i++) {
+      arr[total - parts] = i;
+      yield* partition(sum - i, parts - 1, total, arr)
+    }
+    return;
+  }
 }
 
 function validate(data, spaces, hints) {
@@ -33,19 +57,6 @@ function validate(data, spaces, hints) {
   }
 
   return true;
-}
-
-function partition(sum, parts) {
-  let partitions = [];
-  if (parts == 1) {
-    return [[sum]];
-  }
-  for (let i = 0; i <= sum; i++) {
-    for (let part of partition(sum - i, parts - 1)) {
-      partitions.push([i, ...part]);
-    }
-  }
-  return partitions;
 }
 
 module.exports = input =>
