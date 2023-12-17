@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/schwarzwald/advent2023/issues"
   },
-  "homepage": "https://github.com/schwarzwald/advent2023#readme"
+  "homepage": "https://github.com/schwarzwald/advent2023#readme",
+  "dependencies": {
+    "@datastructures-js/priority-queue": "^6.3.0"
+  }
 }
